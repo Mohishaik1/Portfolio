@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mohiddin Sharieff</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1f7aed;
+      --accent: #72e4ff;
+      --bg-dark: #0b0e19;
+      --text-light: #f7f9fc;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #1f2937;
+      background: #f5f7fb;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      backdrop-filter: blur(12px);
+      background-color: rgba(11, 14, 25, 0.88) !important;
+    }
+
+    #hero {
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 20%, rgba(31, 122, 237, 0.45), transparent 55%),
+                  radial-gradient(circle at 80% 20%, rgba(114, 228, 255, 0.35), transparent 60%),
+                  var(--bg-dark);
+      color: var(--text-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::after {
+      content: "";
+      position: absolute;
+      inset: -200px;
+      background: radial-gradient(circle, rgba(114, 228, 255, 0.2), transparent 50%);
+      animation: pulse 10s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .hero-heading span {
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-cta {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-subtitle {
+      max-width: 640px;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .about-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 25px 50px -20px rgba(15, 23, 42, 0.35);
+      padding: 2rem 2.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .skill-pill {
+      background: rgba(31, 122, 237, 0.12);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 0.85rem 1.4rem;
+      font-weight: 600;
+      margin: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .skill-pill:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -20px rgba(31, 58, 147, 0.6);
+      background: rgba(31, 122, 237, 0.2);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin-top: 2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 12px;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--primary));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 2.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: -6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 0 6px rgba(31, 122, 237, 0.12);
+    }
+
+    .timeline-item h5 {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .timeline-item span {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .project-card {
+      border: none;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px -22px rgba(15, 23, 42, 0.5);
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, rgba(31, 122, 237, 0.18), rgba(114, 228, 255, 0.18));
+      border-radius: 18px;
+      padding: 3rem;
+      backdrop-filter: blur(18px);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-card input,
+    .contact-card textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      padding: 0.85rem 1.1rem;
+    }
+
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Welcome</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex align-items-center text-center">
+    <div class="container position-relative">
+      <h1 class="display-4 fw-bold hero-heading">Hi, I'm <span>Mohiddin Sharieff</span></h1>
+      <p class="lead mx-auto hero-subtitle">
+        I build responsive web experiences with thoughtful design, modern tooling, and a focus on performance. Currently crafting MERN stack applications and exploring cloud-native workflows.
+      </p>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="#projects" class="btn btn-primary btn-lg hero-cta">View My Work</a>
+        <a href="#contact" class="btn btn-outline-light btn-lg">Connect With Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-10">
+          <div class="about-card">
+            <p class="text-uppercase text-muted mb-2">About</p>
+            <h2 class="fw-bold mb-4">Crafting products that feel fast, reliable, and delightful.</h2>
+            <p>
+              I'm a full-stack engineer with hands-on experience in building production-ready applications using the MERN stack.
+              My journey started with tinkering on personal ideas, and it evolved into architecting reusable components, designing API contracts, and shipping features that users love.
+            </p>
+            <p>
+              When I'm not making commits, I'm learning about clean architecture, accessibility, and ways to automate the boring stuff.
+              I love collaborating with driven teams, translating ambitious ideas into intuitive interfaces, and obsessing over the details that make a product shine.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-5 bg-light">
+    <div class="container">
+      <p class="text-center section-title mb-1">Tech Stack & Tools</p>
+      <h2 class="text-center fw-bold mb-4">Languages I Speak In Code</h2>
+      <div class="d-flex flex-wrap justify-content-center">
+        <span class="skill-pill">HTML5</span>
+        <span class="skill-pill">CSS3</span>
+        <span class="skill-pill">JavaScript (ES6+)</span>
+        <span class="skill-pill">TypeScript</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">Express.js</span>
+        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">Git & GitHub</span>
+        <span class="skill-pill">REST APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-5">
+    <div class="container">
+      <p class="text-center section-title mb-1">Experience</p>
+      <h2 class="text-center fw-bold mb-5">Where I've Built & Learned</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h5>Full Stack Product Developer· CODE FOR INDIA</h5>
+          <span>Jun 2025</span>
+          <p class="mt-2 mb-0">
+            
+          </p>
+        </div>
+         <div class="timeline">
+        <div class="timeline-item">
+          <h5>Worked At Cognizant</h5>
+          <span>Nov 2024 - Apr 2025</span>
+          <p class="mt-2 mb-0">
+            
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h5>Worked At Concentrix</h5>
+          <span>Nov 2021 – May 2024</span>
+          <!-- <p class="mt-2 mb-0">
+            Partnered with founders to design and build responsive landing pages and MVPs.
+            Implemented CI/CD pipelines, automated deployments, and optimized Lighthouse scores above 90 across performance metrics.
+          </p> -->
+        </div>
+        <div class="timeline-item">
+          <h5>Bachelor of Administration · Political Science</h5>
+          <span>Graduated 2021</span>
+          <p class="mt-2 mb-0">
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <p class="text-center section-title mb-1">Selected Work</p>
+      <h2 class="text-center fw-bold mb-4">Projects I Have Worked On</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card project-card">
+            <img src="https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="Project">
+            <div class="card-body">
+              <h5 class="card-title">AL-HATEEM</h5>
+              <p class="card-text">
+                Business platform for a travel agency.
+              </p>
+              <a href="https://github.com/" class="btn btn-outline-primary btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="Project">
+            <div class="card-body">
+              <h5 class="card-title">GitHub Users</h5>
+              <p class="card-text">
+               Github users platform
+              </p>
+              <a href="https://github.com/" class="btn btn-outline-primary btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card">
+            <img src="https://images.unsplash.com/photo-1527181152855-fc03fc7949c8?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="Project">
+            <div class="card-body">
+              <h5 class="card-title">WeatherApp</h5>
+              <p class="card-text">
+                A realtime weatherApp
+              </p>
+              <a href="https://github.com/" class="btn btn-outline-primary btn-sm">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="contact-card">
+            <p class="text-uppercase text-muted mb-2 text-center">Contact</p>
+            <h2 class="fw-bold text-center mb-4">Let's build something together.</h2>
+            <form class="row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <div class="col-12">
+                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button class="btn btn-primary btn-lg px-5" type="submit">Send Message</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0">&copy; 2025 My Portfolio | All Rights Reserved</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".about-card, .timeline-item").forEach(element => {
+      element.style.opacity = 0;
+      element.style.transform = "translateY(40px)";
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
