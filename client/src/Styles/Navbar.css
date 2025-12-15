@@ -1,0 +1,16 @@
+nav,ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    
+}
+
+ul,li{
+    color: white;
+    font-weight: bold;
+}
+
+nav{
+    background-color: rgb(58, 57, 57);
+    justify-content: center;
+}
