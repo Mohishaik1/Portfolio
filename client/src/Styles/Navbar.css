@@ -1,16 +1,17 @@
-nav,ul{
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    
+/* Custom styles for Navbar component */
+/* Most styling is handled by Tailwind classes, but custom animations can go here */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-ul,li{
-    color: white;
-    font-weight: bold;
-}
-
-nav{
-    background-color: rgb(58, 57, 57);
-    justify-content: center;
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
 }

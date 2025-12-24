@@ -1,19 +1,27 @@
 import React from 'react';
 
-//Pages
+// Components
 import Navbar from './Components/Navbar.jsx';
+import Footer from './Components/Footer.jsx';
+
+// Pages
+import Home from './Pages/Home.jsx';
+import About from './Pages/About.jsx';
+import Services from './Pages/Services.jsx';
+import Projects from './Pages/Projects.jsx';
+import Contact from './Pages/Contact.jsx';
 
 const App = () => {
   return (
-    <>
-    <Navbar />
-    <h1>This is my portfolio</h1>
-    <p>Welcome to my personal portfolio website where I showcase my projects and skills.
-      My name is, Mohiddin Sharieff, and I am a, Product Developer.
-    Feel free to explore and get in touch!
-    </p>
-    
-    </>
+    <div className="bg-gray-900">
+      <Navbar />
+      <Home />
+      <About />
+      <Services />
+      <Projects />
+      <Contact />
+      <Footer />
+    </div>
   )
 }
 
