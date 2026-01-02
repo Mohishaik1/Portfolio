@@ -25,24 +25,24 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg' : 'bg-gray-900'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('home')}
-              className="text-2xl font-bold text-white hover:text-blue-400 transition-colors"
+              className="text-xl sm:text-2xl font-bold text-white hover:text-blue-400 transition-colors"
             >
-              MS
+              Mohiddin.dev
             </button>
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <ul className="flex items-center space-x-8">
+          <div className="hidden md:flex">
+            <ul className="flex items-center space-x-6 lg:space-x-8">
               <li>
                 <button
                   onClick={() => scrollToSection('home')}
-                  className="text-white font-semibold hover:text-blue-400 transition-colors"
+                  className="text-white font-semibold hover:text-blue-400 transition-colors text-sm lg:text-base"
                 >
                   Home
                 </button>
@@ -50,7 +50,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('about')}
-                  className="text-white font-semibold hover:text-blue-400 transition-colors"
+                  className="text-white font-semibold hover:text-blue-400 transition-colors text-sm lg:text-base"
                 >
                   About
                 </button>
@@ -58,7 +58,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="text-white font-semibold hover:text-blue-400 transition-colors"
+                  className="text-white font-semibold hover:text-blue-400 transition-colors text-sm lg:text-base"
                 >
                   Services
                 </button>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="text-white font-semibold hover:text-blue-400 transition-colors"
+                  className="text-white font-semibold hover:text-blue-400 transition-colors text-sm lg:text-base"
                 >
                   Projects
                 </button>
@@ -74,7 +74,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="text-white font-semibold hover:text-blue-400 transition-colors"
+                  className="text-white font-semibold hover:text-blue-400 transition-colors text-sm lg:text-base"
                 >
                   Contact
                 </button>
